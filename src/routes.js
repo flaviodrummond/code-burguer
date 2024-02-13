@@ -1,4 +1,4 @@
-const { Router, request, response } = require("express") /* só vamos importar o express que é responsável pelas rotas que é o Router */
+import { Router } from "express" /* só vamos importar o express que é responsável pelas rotas que é o Router */
 
 const routes = new Router() /* armazenamos nosso Router dentro de uma variável */
 
@@ -8,4 +8,4 @@ routes.get('/', (request, response) => {
     return response.json({message: "Hello World"})
 })
 
-module.exports = routes
+export default routes

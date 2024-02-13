@@ -1,5 +1,5 @@
-const express = require("express") /* importando o express */ 
-const routes = require("./routes") /* importando as nossas rotas */
+import express from "express" /* importando o express */ 
+import routes from './routes' /* importando as nossas rotas */
 
 class App { /* criamos nossa class app e dentro dela começamos com o método constructor, (lembrando que toda vez que estâncio minha class com o new app. O método constructor é chamado) */
     constructor() { /* dentro do constructor, deixo meu express disponível, dando um this. app */
@@ -24,4 +24,4 @@ class App { /* criamos nossa class app e dentro dela começamos com o método co
     }
 }
 
-module.exports = new App().app /* agora exportando o meu app */
+export default new App().app /* agora exportando o meu app */
