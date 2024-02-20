@@ -1,5 +1,6 @@
 import express from "express" /* importando o express */
 import routes from "./routes" /* importando as nossas rotas */
+import "./database"
 
 class App {
   /* criamos nossa class app e dentro dela começamos com o método constructor, (lembrando que toda vez que estâncio minha class com o new app. O método constructor é chamado) */
