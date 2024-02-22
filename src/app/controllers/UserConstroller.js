@@ -23,6 +23,16 @@ class UserController {
 
     const { name, email, password_hash, admin } = request.body
 
+    const userExists = await User.findOne({
+      /* Fazendo a verificação se o e-mail já esta cadastrado */
+      where: { email },
+    })
+
+    if (userExists) {
+      /* Fazendo a verificação se o e-mail já esta cadastrado */
+      return response.status(400).json({ error: "Este e-mail já existe" })
+    }
+
     const user = await User.create({
       id: v4(),
       name,
