@@ -15,7 +15,7 @@ class SessionController {
     }
 
     if (!(await schema.isValid(request.body))) {
-      userEmailPasswordIncorrect()
+      return userEmailPasswordIncorrect()
     }
     const { email, password } = request.body
 
@@ -24,10 +24,12 @@ class SessionController {
     })
 
     if (!user) {
-      userEmailPasswordIncorrect()
+      return userEmailPasswordIncorrect()
     }
 
-    if (!(await user.checkPassword(password))) userEmailPasswordIncorrect()
+    if (!(await user.checkPassword(password))) {
+      return userEmailPasswordIncorrect()
+    }
 
     return response.json({
       id: user.id,
