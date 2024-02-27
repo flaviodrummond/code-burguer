@@ -1,5 +1,6 @@
 import express from "express" /* importando o express */
 import routes from "./routes" /* importando as nossas rotas */
+import { resolve } from "path"
 import "./database"
 
 class App {
@@ -19,6 +20,10 @@ class App {
   middlewares() {
     /* no express, eu preciso avisar que vamos usar o json */
     this.app.use(express.json())
+    this.app.use(
+      "/product-file",
+      express.static(resolve(__dirname, "..", "uploads")),
+    )
   }
 
   routes() {
